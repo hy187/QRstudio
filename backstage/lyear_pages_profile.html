@@ -145,6 +145,7 @@
           </div>
           
           <ul class="topbar-right">
+			  <div class="navbar-page-title">你好<span id="show" style="color: aquamarine;" charset="utf-8"></span>欢迎登陆！</div>
             <!-- <li class="dropdown dropdown-profile">
               <a href="javascript:void(0)" data-toggle="dropdown">
                 <img class="img-avatar img-avatar-48 m-r-10" src="images/users/avatar.jpg" alt="后台管理系统" />
@@ -448,8 +449,14 @@
                 	  }
                 	});
                 	
-                	
-                	
+                	var test= localStorage.getItem("test");
+                	console.log(test);
+					localStorage.setItem("test",test);
+					$(function() {
+						//console.log(decodeURI(location.search.concat()));
+						//要显示的地方
+						$("#show").html(test);
+					})
                 </script>
 </body>
 </html>

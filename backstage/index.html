@@ -26,19 +26,6 @@
       
       <!-- logo -->
       <div id="logo" class="sidebar-header">
-		  <!-- <div class="row products-detail">
-		    Products list content
-		    <script id="index" type="text/x-handlebars-template">
-		      <div class="col-sm-6 col-md-4 product-detail">
-		        <div class="thumbnail"> -->
-		            <!-- <p>来自：{{{ownerUsername}}}</p>						<!-- 用户名 -->
-		            <!-- <p>发布时间：{{{releaseTime}}}</p> -->
-		          <!-- </div>
-		        </div>
-		      </div>
-		    </script>
-		  </div>	 --> 
-		  <!-- <h4>强人工作室后台管理系统</h4> -->
         <a href="index.html">
 			<div style="font-size:20px;margin-top:20px;margin-bottom:20px;">强人工作室后台管理系统</div>
 		</a>
@@ -157,6 +144,8 @@
           </div>
           
           <ul class="topbar-right">
+			<div class="navbar-page-title">你好<span id="show" style="color: aquamarine;" charset="utf-8"></span>欢迎登陆！</div>
+			<!-- <div class="navbar-page-title">欢迎登陆</div>&nbsp;<div id="show" class="navbar-page-title"></div>&nbsp;<div class="navbar-page-title">你好</div> -->
             <!-- <li class="dropdown dropdown-profile">
               <a href="javascript:void(0)" data-toggle="dropdown">
                 <img class="img-avatar img-avatar-48 m-r-10" src="images/users/avatar.jpg" alt="后台管理系统" />
@@ -308,16 +297,15 @@
     <main class="lyear-layout-content">
       
       <div class="container-fluid">
-        
-        <div class="row">
+        <div class="row">	
           <div class="col-sm-6 col-lg-3">
             <div class="card bg-primary">
               <div class="card-body clearfix">
                 <div class="pull-right">
-                  <p class="h6 text-white m-t-0">今日收入</p>
-                  <p class="h3 text-white m-b-0">102,125.00</p>
+                  <p class="h6 text-white m-t-0">成立天数</p>
+                  <p class="h3 text-white m-b-0">6400</p>
                 </div>
-                <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-currency-cny fa-1-5x"></i></span> </div>
+                <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-keyboard-variant fa-1-5x"></i></span> </div>
               </div>
             </div>
           </div>
@@ -327,7 +315,7 @@
               <div class="card-body clearfix">
                 <div class="pull-right">
                   <p class="h6 text-white m-t-0">用户总数</p>
-                  <p class="h3 text-white m-b-0">920,000</p>
+                  <p class="h3 text-white m-b-0">19</p>
                 </div>
                 <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-account fa-1-5x"></i></span> </div>
               </div>
@@ -338,7 +326,7 @@
             <div class="card bg-success">
               <div class="card-body clearfix">
                 <div class="pull-right">
-                  <p class="h6 text-white m-t-0">下载总量</p>
+                  <p class="h6 text-white m-t-0">访问总量</p>
                   <p class="h3 text-white m-b-0">34,005,000</p>
                 </div>
                 <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-arrow-down-bold fa-1-5x"></i></span> </div>
@@ -350,7 +338,7 @@
             <div class="card bg-purple">
               <div class="card-body clearfix">
                 <div class="pull-right">
-                  <p class="h6 text-white m-t-0">新增留言</p>
+                  <p class="h6 text-white m-t-0">工作室留言</p>
                   <p class="h3 text-white m-b-0">153 条</p>
                 </div>
                 <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-comment-outline fa-1-5x"></i></span> </div>
@@ -525,7 +513,7 @@
 
 <!--图表插件-->
 <script type="text/javascript" src="js/Chart.js"></script>
-<script type="text/javascript">
+<script type="text/javascript" charset="utf-8">
 $(document).ready(function(e) {
     var $dashChartBarsCnt  = jQuery( '.js-chartjs-bars' )[0].getContext( '2d' ),
         $dashChartLinesCnt = jQuery( '.js-chartjs-lines' )[0].getContext( '2d' );
@@ -570,25 +558,34 @@ $(document).ready(function(e) {
     });
 });
 </script>
-<script type="text/javascript">
-	const currentUser = LC.User.current();						//当前登录用户
-	// const query = new LC.Query('_User');
+<script type="text/javascript" charset="utf-8">
+    const currentUser = LC.User.current();						//当前登录用户
+	// const query = new LC.Query('User');
 	// query.equalTo('username', '123');
 	// const a = query.find().then((_User) => {
 	//   // students 是包含满足条件的 Student 对象的数组
 	// });
-	
 	console.log(currentUser);
-	// usern = JSON.parse(currentUser).currentUser.paths[0].data;
-	// console.log(usern);
-	    //获取传递过来的localStorage
-	    //console.log(window.localStorage.getItem('user'))
+	var test= localStorage.getItem("test");
+	console.log(test);
 
-const query = new LC.Query('Product');
-query.equalTo('username', '123');
-query.find().then((students) => {
-  // students 是包含满足条件的 Student 对象的数组
-});
+$(function() {
+	//console.log(decodeURI(location.search.concat()));
+	//要显示的地方
+	$("#show").html(test);
+})
+// function QK_onval() {
+// 	var QK_result;
+// 	var QK_url = location.href;
+// 	if (QK_url.indexOf("?") != -1) {
+// 		QK_result = QK_url.substr(QK_url.indexOf("=") + 1);
+// 		return QK_result;
+		
+// 	}
+// }
+//console.log(unescape('贺云鹏'));
+// console.log(decodeURI(QK_onval()));
+
 
 </script>
 
