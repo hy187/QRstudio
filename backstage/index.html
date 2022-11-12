@@ -55,7 +55,7 @@
               </ul>
             </li>
             <li class="nav-item nav-item-has-subnav">
-              <a href="javascript:void(0)"><i class="mdi mdi-format-align-justify"></i> 表单</a>
+              <a href="javascript:void(0)"><i class="mdi mdi-format-align-justify"></i>表单</a>
               <ul class="nav nav-subnav">
                 <li> <a href="lyear_forms_elements.html">基本元素</a> </li>
                 <li> <a href="lyear_forms_radio.html">单选框</a> </li>
@@ -64,7 +64,7 @@
               </ul>
             </li>
             <li class="nav-item nav-item-has-subnav">
-              <a href="javascript:void(0)"><i class="mdi mdi-file-outline"></i> 示例页面</a>
+              <a href="javascript:void(0)"><i class="mdi mdi-file-outline"></i>示例页面</a>
               <ul class="nav nav-subnav">
                 <li> <a href="lyear_pages_doc.html">文档列表</a> </li>
                 <li> <a href="lyear_pages_gallery.html">图库列表</a> </li>
@@ -77,7 +77,7 @@
               </ul>
             </li>
             <li class="nav-item nav-item-has-subnav">
-              <a href="javascript:void(0)"><i class="mdi mdi-language-javascript"></i> JS 插件</a>
+              <a href="javascript:void(0)"><i class="mdi mdi-language-javascript"></i>JS 插件</a>
               <ul class="nav nav-subnav">
                 <li> <a href="lyear_js_datepicker.html">日期选取器</a> </li>
                 <li> <a href="lyear_js_sliders.html">滑块</a> </li>
@@ -93,9 +93,27 @@
 			  <ul class="nav nav-subnav">
 			    <li> <a href="lyear_pages_profile.html"><i class="mdi mdi-account"></i> 个人信息</a> </li>
 			    <li> <a href="lyear_pages_edit_pwd.html"><i class="mdi mdi-lock-outline"></i> 修改密码</a> </li>
-			    
 			    <li> <a href="#" onclick="logout()"><i class="mdi mdi-logout-variant"></i> 退出登录</a> </li>
 			  </ul>
+			</li>
+			<li class="nav-item nav-item-has-subnav">
+			  <a href="javascript:void(0)" data-toggle="dropdown"><i class="mdi mdi-account-card-details"></i>成员信息管理</a>
+			  <ul class="nav nav-subnav">
+				<li><a href="lyear_pages_doc.html"><i></i>基本信息管理</a></li>
+				<li><a href="profile.html"><i></i>课表信息管理</a></li>
+			  </ul>
+			</li>
+			<li>
+			  <a href="https://www.kdocs.cn/l/cr6wWilNBoV2" target="_blank"><i class="mdi mdi-message-draw"></i>进度统计</a>
+			</li>
+			<li>
+			  <a href="system.html"><i class="mdi mdi-content-paste"></i>规章制度</a>
+			</li>
+			<li>
+			  <a href="lyear_pages_gallery.html"><i class="mdi mdi-image-area"></i>图库</a>
+			</li>
+			<li>
+			  <a href="message.html"><i class="mdi mdi-comment-text"></i>留言</a>
 			</li>
             <!-- <li class="nav-item nav-item-has-subnav">
               <a href="javascript:void(0)"><i class="mdi mdi-menu"></i> 多级菜单</a>
@@ -559,13 +577,14 @@ $(document).ready(function(e) {
 });
 </script>
 <script type="text/javascript" charset="utf-8">
-    const currentUser = LC.User.current();						//当前登录用户
-	// const query = new LC.Query('User');
-	// query.equalTo('username', '123');
-	// const a = query.find().then((_User) => {
-	//   // students 是包含满足条件的 Student 对象的数组
-	// });
+	const currentUser = LC.User.current();
 	console.log(currentUser);
+    // const query = new LC.Query('Product');
+    // Query.equalTo('name','贺云鹏');
+    // query.find().then((product) => {
+    //   // students 是包含满足条件的 Student 对象的数组
+    // });
+
 	var test= localStorage.getItem("test");
 	console.log(test);
 

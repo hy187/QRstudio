@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-<title>个人信息 - 后台管理系统</title>
+<title>首页 - 后台管理系统</title>
 <link rel="icon" href="favicon.ico" type="image/ico">
 <meta name="keywords" content="后台管理系统">
 <meta name="description" content="基于Bootstrap v3.3.7的后台管理系统">
@@ -11,16 +11,25 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/materialdesignicons.min.css" rel="stylesheet">
 <link href="css/style.min.css" rel="stylesheet">
-
 <script src="https://code.bdstatic.com/npm/leancloud-storage@5.0.0-beta.0/dist/browser/lc.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 <script type="text/javascript" src="js/perfect-scrollbar.min.js"></script>
 <script type="text/javascript" src="js/main.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script type="text/javascript" src="js/header.js"></script>
+<script type="text/javascript" charset="utf-8">
+	const currentUser = LC.User.current();
+	console.log(currentUser);
+	var test= localStorage.getItem("test");
+	console.log(test);
+$(function() {
+	//console.log(decodeURI(location.search.concat()));
+	//要显示的地方
+	$("#show").html(test);
+})
+</script>
 </head>
-
-<body>
+<body>					
 <div class="lyear-layout-web">
   <div class="lyear-layout-container">
     <!--左侧导航-->
@@ -28,8 +37,9 @@
       
       <!-- logo -->
       <div id="logo" class="sidebar-header">
-		  <!-- <h4>强人工作室后台管理系统</h4> -->
-        <a href="index.html"><img src="images/logo-sidebar.png" title="LightYear" alt="LightYear" /></a>
+        <a href="index.html">
+			<div style="font-size:20px;margin-top:20px;margin-bottom:20px;">强人工作室后台管理系统</div>
+		</a>
       </div>
       <div class="lyear-layout-sidebar-scroll"> 
         
@@ -56,7 +66,7 @@
               </ul>
             </li>
             <li class="nav-item nav-item-has-subnav">
-              <a href="javascript:void(0)"><i class="mdi mdi-format-align-justify"></i> 表单</a>
+              <a href="javascript:void(0)"><i class="mdi mdi-format-align-justify"></i>表单</a>
               <ul class="nav nav-subnav">
                 <li> <a href="lyear_forms_elements.html">基本元素</a> </li>
                 <li> <a href="lyear_forms_radio.html">单选框</a> </li>
@@ -65,7 +75,7 @@
               </ul>
             </li>
             <li class="nav-item nav-item-has-subnav">
-              <a href="javascript:void(0)"><i class="mdi mdi-file-outline"></i> 示例页面</a>
+              <a href="javascript:void(0)"><i class="mdi mdi-file-outline"></i>示例页面</a>
               <ul class="nav nav-subnav">
                 <li> <a href="lyear_pages_doc.html">文档列表</a> </li>
                 <li> <a href="lyear_pages_gallery.html">图库列表</a> </li>
@@ -78,7 +88,7 @@
               </ul>
             </li>
             <li class="nav-item nav-item-has-subnav">
-              <a href="javascript:void(0)"><i class="mdi mdi-language-javascript"></i> JS 插件</a>
+              <a href="javascript:void(0)"><i class="mdi mdi-language-javascript"></i>JS 插件</a>
               <ul class="nav nav-subnav">
                 <li> <a href="lyear_js_datepicker.html">日期选取器</a> </li>
                 <li> <a href="lyear_js_sliders.html">滑块</a> </li>
@@ -94,30 +104,28 @@
 			  <ul class="nav nav-subnav">
 			    <li> <a href="lyear_pages_profile.html"><i class="mdi mdi-account"></i> 个人信息</a> </li>
 			    <li> <a href="lyear_pages_edit_pwd.html"><i class="mdi mdi-lock-outline"></i> 修改密码</a> </li>
-			    
 			    <li> <a href="#" onclick="logout()"><i class="mdi mdi-logout-variant"></i> 退出登录</a> </li>
 			  </ul>
 			</li>
-            <!-- <li class="nav-item nav-item-has-subnav">
-              <a href="javascript:void(0)"><i class="mdi mdi-menu"></i> 多级菜单</a>
-              <ul class="nav nav-subnav">
-                <li> <a href="#!">一级菜单</a> </li>
-                <li class="nav-item nav-item-has-subnav"> 
-                  <a href="#!">一级菜单</a>
-                  <ul class="nav nav-subnav">
-                    <li> <a href="#!">二级菜单</a> </li>
-                    <li class="nav-item nav-item-has-subnav"> 
-                      <a href="#!">二级菜单</a>
-                      <ul class="nav nav-subnav">
-                        <li> <a href="#!">三级菜单</a> </li>
-                        <li> <a href="#!">三级菜单</a> </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li> <a href="#!">一级菜单</a> </li>
-              </ul>
-            </li> -->
+			<li class="nav-item nav-item-has-subnav">
+			  <a href="javascript:void(0)" data-toggle="dropdown"><i class="mdi mdi-account-card-details"></i>成员信息管理</a>
+			  <ul class="nav nav-subnav">
+				<li><a href="lyear_pages_doc.html"><i></i>基本信息管理</a></li>
+				<li><a href="profile.html"><i></i>课表信息管理</a></li>
+			  </ul>
+			</li>
+			<li>
+			  <a href="https://www.kdocs.cn/l/cr6wWilNBoV2" target="_blank"><i class="mdi mdi-message-draw"></i>进度统计</a>
+			</li>
+			<li>
+			  <a href="system.html"><i class="mdi mdi-content-paste"></i>规章制度</a>
+			</li>
+			<li>
+			  <a href="lyear_pages_gallery.html"><i class="mdi mdi-image-area"></i>图库</a>
+			</li>
+			<li>
+			  <a href="lyear_pages_edit_pwd.html"><i class="mdi mdi-comment-text"></i>留言</a>
+			</li>
           </ul>
         </nav>
         
@@ -145,20 +153,7 @@
           </div>
           
           <ul class="topbar-right">
-			  <div class="navbar-page-title">你好<span id="show" style="color: aquamarine;" charset="utf-8"></span>欢迎登陆！</div>
-            <!-- <li class="dropdown dropdown-profile">
-              <a href="javascript:void(0)" data-toggle="dropdown">
-                <img class="img-avatar img-avatar-48 m-r-10" src="images/users/avatar.jpg" alt="后台管理系统" />
-                <span>后台管理系统<span class="caret"></span></span>
-              </a>
-              <ul class="dropdown-menu dropdown-menu-right">
-                <li> <a href="lyear_pages_profile.html"><i class="mdi mdi-account"></i> 个人信息</a> </li>
-                <li> <a href="lyear_pages_edit_pwd.html"><i class="mdi mdi-lock-outline"></i> 修改密码</a> </li>
-                <li class="divider"></li>
-                <li> <a href="lyear_pages_login.html"><i class="mdi mdi-logout-variant"></i> 退出登录</a> </li>
-              </ul>
-            </li> -->
-            <!--切换主题配色-->
+			<div class="navbar-page-title">你好<span id="show" style="color: aquamarine;" charset="utf-8"></span>欢迎登陆！</div>
 		    <li class="dropdown dropdown-skin">
 			  <span data-toggle="dropdown" class="icon-palette"><i class="mdi mdi-palette"></i></span>
 			  <ul class="dropdown-menu dropdown-menu-right" data-stopPropagation="true">
@@ -292,171 +287,34 @@
       
     </header>
     <!--End 头部信息-->
-    
-    <!--页面主要内容-->
-    <main class="lyear-layout-content">
-      
-      <div class="container-fluid">
-        
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="card">
-              <div class="card-body">
-                
-                <!-- <div class="edit-avatar">
-                  <img src="images/users/avatar.jpg" alt="..." class="img-avatar">
-                  <div class="avatar-divider"></div>
-                  <div class="edit-avatar-content">
-                    <button class="btn btn-default">修改头像</button>
-                    <p class="m-0">选择一张你喜欢的图片，裁剪后会自动生成264x264大小，上传图片大小不能超过2M。</p>
-                  </div>
-                </div> -->
-                <form class="new-product">
-                    <h2 class="new-product-heading">完善或修改个人信息</h2>
-                	<div class="form-group">
-                	  <label for="name">姓名</label>
-                	  <input type="text" class="form-control" name="name" id="name" placeholder="输入真实姓名"  required autofocus>
-                	</div>
-                	<div class="form-group">
-                		<label for="sex">性别</label>
-                		<select class="form-control" name="sex" id="sex" required autofocus>
-                			<option></option>
-                			<option>男</option>
-                			<option>女</option>
-                		</select>
-                	</div>
-                	<br>
-                	<div class="form-group">
-                	  <label for="number">联系方式</label>
-                	  <input type="text" class="form-control" name="number" id="number" placeholder="请输入你的手机号码" required autofocus>
-                	</div>
-                	<div class="form-group">
-                	  <label for="id">学号</label>
-                	  <input type="text" class="form-control" name="id" id="id" placeholder="请输入你的学号" required autofocus>
-                	</div>
-                	<div class="form-group">
-                		<label for="name">工作室学习方向</label>
-                		<select class="form-control" name="direction" id="direction" required autofocus>
-                			<option></option>
-                			<option>web</option>
-                			<option>Python</option>
-                			<option>Java</option>
-                			<option>PHP</option>
-                		</select>
-                	</div>
-                	<div class="form-group">
-                	  <label for="class">班级</label>
-                	  <input type="text" class="form-control" name="class" id="class" placeholder="请输入你的专业班级" required autofocus>
-                	</div>
-                	<div class="form-group">
-                	  <label for="academy">书院</label>
-                	  <input type="text" class="form-control" name="academy" id="academy" placeholder="请输入你的住宿书院" required autofocus>
-                	</div>
-                	<div class="form-group">
-                	  <label for="tname">育人导师姓名</label>
-                	  <input type="text" class="form-control" name="tname" id="atname" placeholder=" " required autofocus>
-                	</div>
-                	<div class="form-group">
-                	  <label for="tnumber">育人导师联系方式</label>
-                	  <input type="text" class="form-control" name="tnumber" id="tnumber" placeholder=" " required autofocus>
-                	</div>
-                    <!-- <label for="product-title" class="sr-only">商品名称</label>
-                    <input type="title" id="inputTitle" class="form-control" placeholder="商品名称" required autofocus>
-                    <label for="inputPrice" class="sr-only">价格</label>
-                    <input type="price" id="inputPrice" class="form-control" placeholder="价格" required>
-                    <label for="inputDescription" class="sr-only">商品描述</label>
-                    <textarea type="description" id="inputDescription" class="form-control" placeholder="商品描述" required></textarea> -->
-                    <label for="inputFile">上传课表（大家可以截一下只要课表内容部分）</label>
-					<image src="https://s1.vika.cn/space/2022/11/10/5b47f19001d34681b0be2aa32e478740" style="width:60px;height:40px;"></image>
-                    <input type="file" id="inputFile" class="example-file-multiple-input" placeholder="文件" required>
-                    <br/>
-					<button class="btn btn-primary" type="submit">保存</button>
-                  </form>
-				  
-                </div> <!-- /container -->
-
-				
-				
-				
-                <script type="text/javascript">
-					// handlebars context
-					const context = {
-					  products: [],
-					};
-					
-					const currentUser = LC.User.current();
-					console.log(currentUser);
-					console.log(context);
-                	function releaseNewProduct() {
-						var number = document.getElementById("number").value;
-						if(number.length != 11){
-							alert("手机号码输入错误！");
-							return false;
-						}
-						var id = document.getElementById("id").value;
-						if(id.length != 13){
-							alert("学号输入错误！");
-							return false;
-						}
-						var tnumber = document.getElementById("tnumber").value;
-						if(tnumber.length != 11){
-							alert("育人导师手机号码输入错误！");
-							return false;
-						}
-						
-                	  // LeanCloud - 当前用户
-                	  // https://leancloud.cn/docs/leanstorage_guide-js.html#hash748191977
-                	  const currentUser = LC.User.current();
-                	  // LeanCloud - 文件
-                	  // https://leancloud.cn/docs/leanstorage_guide-js.html#hash825935
-                	  const file = $("#inputFile")[0].files[0];
-                	  const name = file.name;
-                	  LC.File.upload(name, file).then((lcFile) => {
-                	    // LeanCloud - 对象
-                	    // https://leancloud.cn/docs/leanstorage_guide-js.html#hash799084270
-                	    LC.CLASS("Product")
-                	      .add({
-                			name: $("#name").val(),
-                			sex: $("#sex").val(),									
-                			number: $("#number").val(),
-                			id: $("#id").val(),
-                			direction: $("#direction").val(),
-                			class: $("#class").val(),
-                			academy: $("#academy").val(),
-                			tname: $("#tname").val(),
-                			tnumber: $("#tnumber").val(),																									
-                	        // title: $("#inputTitle").val(),												//商品名称
-                	        // price: parseFloat($("#inputPrice").val()),									//商品价格
-                	        // description: $("#inputDescription").val(),									//商品描述
-                	        owner: currentUser,															//用户												
-                	        image: lcFile,																//图片
-                	      })
-                	      .then(() => {
-                	        alert('保存成功');window.location.href = "profile.html";
-                	      })
-                	      .catch(({ error }) => alert(保存失败));
-                	  });
-                	}
-                	
-                	$(function () {
-                	  if (LC.User.current()) {
-                	    $(".new-product").on("submit", function (e) {
-                	      e.preventDefault();
-                	      releaseNewProduct();
-                	    });
-                	  } else {
-                	    window.location.href = "lyear_pages_login.html";
-                	  }
-                	});
-                	
-                	var test= localStorage.getItem("test");
-                	console.log(test);
-					localStorage.setItem("test",test);
-					$(function() {
-						//console.log(decodeURI(location.search.concat()));
-						//要显示的地方
-						$("#show").html(test);
-					})
-                </script>
-</body>
+	<body>
+		<main class="lyear-layout-content">
+		
+		  <div class="container-fluid">
+		    
+		    <div class="row">
+		      <div class="col-lg-12">
+		        <div class="card">
+		          <div class="card-header"><h1>强人工作室管理制度</h1></div>
+		          <div class="card-body">
+		            <h3>一、工作室时间</h3>
+						<h4>周一至周五：下午两点到晚上九点半（没课的时间）</h4>
+						<h4>周六：上午八点半到十一点半，下午两点到六点</h4>
+						<h4>其他时间点也可以来工作室学习</h4>
+						<br />
+		            <h3>二、管理制度</h3>
+					<ol>
+					  <h4><li>每人每周只有一次请假的机会，请假向组长申请即可(如有特殊情况，可酌情考虑)</li></h4>
+					  <h4><li>工作室会不定时开会，如没有特殊原因则必须到场。</li></h4>
+					  <h4><li>每周五晚上会进行学习进度的统计，周六会发放一些题目，如果做的太差会被劝退。</li></h4>
+					  <h4><li>在工作室禁止打游戏，在工作室禁止玩手机，一旦发现立即劝退。</li></h4>
+					  <h4><li>不能大声喧哗，以及在工作室吃东西。</li></h4>
+					  <h4><li>早退或迟到警告一次，并罚抄工作室管理制度，一周两次直接劝退。</li></h4>
+					  <h4><li>不参加寒训以及暑训视为自动退出工作室。</li></h4>
+					</ol>
+		          </div>
+		        </div>
+		      </div>          
+		    </div>
+	</body>
 </html>
