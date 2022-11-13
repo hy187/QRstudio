@@ -180,7 +180,7 @@
             </div>
           </div>
 
-          <div class="" data-wow-delay="0.1s">
+          <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
             <div class="about-col">
               <div class="img">
                 <img src="" alt="" class="img-fluid">
@@ -548,7 +548,7 @@
           </div>
 
         </div> -->
-<!-- 
+
         <div class="form">
           <div id="sendmessage">Your message has been sent. Thank you!</div>
           <div id="errormessage"></div>
@@ -563,22 +563,22 @@
             </div>
             <div class="form-group">
               <textarea class="form-control" name="message" id="message" rows="5" placeholder="描述（必填)" required></textarea>              
-            </div> -->
+            </div>
             <!-- <div class="text-center"><button type="button" disabled>暂未开放</button></div> -->
-<!-- 			<div class="text-center"><button class="btn btn-primary" type="submit" >提交</button></div>
+			<div class="text-center"><button class="btn btn-primary" type="submit" >提交</button></div>
           </form>
         </div>
 
-      </div> -->
+      </div>
     </section><!-- #contact -->
 
 
   </main>
 
 
-  <!--==========================
+<!--  ==========================
     Footer
-  ============================-->
+  ============================ -->
   <footer id="footer">
     <div class="footer-top">
       <div class="container">
@@ -657,28 +657,31 @@
   <!-- Template Main Javascript File -->
   <script src="js/common.js"></script>
   <script src="js/index.js"></script>
-  <!-- <script src="https://code.bdstatic.com/npm/leancloud-storage@5.0.0-beta.0/dist/browser/lc.min.js"></script>
+  <script src="https://code.bdstatic.com/npm/leancloud-storage@5.0.0-beta.0/dist/browser/lc.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-  <script type="text/javascript" src="backstage/js/perfect-scrollbar.min.js"></script>
-  <script type="text/javascript" src="backstage/js/main.min.js"></script>
+<!--  <script type="text/javascript" src="backstage/js/perfect-scrollbar.min.js"></script>
+  <script type="text/javascript" src="backstage/js/main.min.js"></script> -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="backstage/js/header.js"></script>
   <script type="text/javascript">
-
-function addProfile() {
-  // LeanCloud
-  // https://leancloud.cn/docs/leanstorage_guide-js.html#hash885156
-  LC.CLASS("Profile")
-  .add({
-    name: $("#name").val(),
-    phone: $("#phone").val(),									
-    message: $("#message").val(),
-  })
-    .then(() => {
-      alert("提交成功");
-    })
-    .catch(({ error }) => alert(error));
-}
+	const appId = "gw4laJU022aE9r8F8HgIlkur-gzGzoHsz";
+	const appKey = "FSHBNc10OyrdSgB68dM5CYgm";
+	const serverURL = "https://gw4laju0.lc-cn-n1-shared.com";
+	LC.init({ appId, appKey, serverURL });
+		
+	function addProfile() {
+		// LeanCloud
+		// https://leancloud.cn/docs/leanstorage_guide-js.html#hash885156
+		LC.CLASS("Profile")
+		.add({
+		name: $("#name").val(),
+		phone: $("#phone").val(),									
+		message: $("#message").val(),
+		})
+		.then(() => {
+		alert("提交成功");
+		})
+		.catch(({ error }) => alert(error));
+	}
 
 	$(function () {															//按钮触发器
 		$(".contactForm").on("submit", function (e) {
@@ -687,6 +690,6 @@ function addProfile() {
 		});
 	});
 
-  </script> -->
+  </script>
 </body>
 </html>

@@ -17,6 +17,17 @@
 <script type="text/javascript" src="js/main.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script type="text/javascript" src="js/header.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script type="text/javascript" charset="utf-8">
+	const currentUser = LC.User.current();
+	var test= localStorage.getItem("test");
+	console.log(test);
+	$(function(){
+	//console.log(decodeURI(location.search.concat()));
+	//要显示的地方
+	$("#show").html(test);
+})
+</script>
 </head>
 <body>					
 <div class="lyear-layout-web">
@@ -318,7 +329,7 @@
         </div>
         <div class="form">
           <div id="errormessage"></div>
-          <form role="form" class="contactForm">
+          <!-- <form role="form" class="contactForm">
             <div class="form-row">
               <div class="form-group col-md-6">
                 <input type="text" name="name" class="form-control" id="name" placeholder="姓名（选填）">
@@ -329,15 +340,15 @@
             </div>
             <div class="form-group">
               <textarea class="form-control" name="message" id="message" rows="5" placeholder="描述（必填)" required></textarea>              
-            </div>
-            <!-- <div class="text-center"><button type="button" disabled>暂未开放</button></div> -->
-			<div class="text-center"><button class="btn btn-primary" type="submit" >提交</button></div>
-          </form>
+            </div> -->
+<!-- 			<div class="text-center"><button class="btn btn-primary" type="submit" >提交</button></div>
+          </form> -->
+		  <br />
         </div>
-
+		 <div id="vcomments"></div>
       </div>
 	</main>
-	  <script type="text/javascript">
+<!-- 	  <script type="text/javascript">
 	  
 	  function addProfile() {
 	    // LeanCloud - 注册
@@ -362,5 +373,14 @@
 	  		});
 	  	});
 	  
-	    </script>
+	    </script> -->
+		
+		<script>
+			new Valine({
+		        el: '#vcomments',
+		        appId: 'gw4laJU022aE9r8F8HgIlkur-gzGzoHsz',
+		        appKey: 'FSHBNc10OyrdSgB68dM5CYgm',
+				avatar: 'https://valine.js.org/#/avatar',
+		    })
+		</script>
   </html>
