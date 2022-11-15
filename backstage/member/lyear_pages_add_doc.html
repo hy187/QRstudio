@@ -372,7 +372,7 @@
 		name: $("#name").val(),
 		})
 		.then(() => {
-		alert("提交成功");
+		alert('保存成功');window.location.href = "index.html";
 		})
 		.catch(({ error }) => alert(error));
 	}
