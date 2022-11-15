@@ -80,7 +80,7 @@
         </div>
       </form>
       <hr>
-	  <div><a href="admin.html">点击管理员登录</a></div>
+	  <div><a href="lyear_pages_login.html">点击普通成员登录</a></div>
       <footer class="col-sm-12 text-center">
       </footer>
     </div>
@@ -95,10 +95,9 @@
 	sessionStorage.setItem("username", "username");
 </script> -->
 `	<script type="text/javascript">
-		const appId = "gw4laJU022aE9r8F8HgIlkur-gzGzoHsz";
-		const appKey = "FSHBNc10OyrdSgB68dM5CYgm";
-		const serverURL = "https://gw4laju0.lc-cn-n1-shared.com";
-		
+		const appId = "asZonBWu3PU5x2xZ19Ui2wUB-gzGzoHsz";
+		const appKey = "AxrmIA6kb2KHsJ6seRRXMPOm";
+		const serverURL = "https://aszonbwu.lc-cn-n1-shared.com";		
 		LC.init({ appId, appKey, serverURL });
 		
 		function login() {
@@ -111,7 +110,7 @@
 		  // LeanCloud - 登录
 		  LC.User.login(username, password)
 		    .then(() => {
-		      window.location.href = "member/index.html?values=" + username;				//跳转页面
+		      window.location.href = "index.html?values=" + username;				//跳转页面
 		    })
 		    .catch(({ error }) => alert("账号或密码错误，请重试！"));
 		

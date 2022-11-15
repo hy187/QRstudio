@@ -64,19 +64,6 @@
               </ul>
             </li>
             <li class="nav-item nav-item-has-subnav">
-              <a href="javascript:void(0)"><i class="mdi mdi-file-outline"></i>示例页面</a>
-              <ul class="nav nav-subnav">
-                <li> <a href="lyear_pages_doc.html">文档列表</a> </li>
-                <li> <a href="lyear_pages_gallery.html">图库列表</a> </li>
-                <li> <a href="lyear_pages_config.html">网站配置</a> </li>
-                <li> <a href="lyear_pages_rabc.html">设置权限</a> </li>
-                <li> <a href="lyear_pages_add_doc.html">新增文档</a> </li>
-               <!-- <li> <a href="lyear_pages_guide.html">表单向导</a> </li> -->
-                <li> <a href="lyear_pages_login.html">登录页面</a> </li>
-                <li> <a href="lyear_pages_error.html">错误页面</a> </li>
-              </ul>
-            </li>
-            <li class="nav-item nav-item-has-subnav">
               <a href="javascript:void(0)"><i class="mdi mdi-language-javascript"></i>JS 插件</a>
               <ul class="nav nav-subnav">
                 <li> <a href="lyear_js_datepicker.html">日期选取器</a> </li>
@@ -93,7 +80,7 @@
 			  <ul class="nav nav-subnav">
 			    <li> <a href="lyear_pages_profile.html"><i class="mdi mdi-account"></i> 个人信息</a> </li>
 			    <li> <a href="lyear_pages_edit_pwd.html"><i class="mdi mdi-lock-outline"></i> 修改密码</a> </li>
-			    <li> <a href="#" onclick="logout()"><i class="mdi mdi-logout-variant"></i> 退出登录</a> </li>
+			    <li> <a href="lyear_pages_login.html"><i class="mdi mdi-logout-variant"></i> 退出登录</a> </li>
 			  </ul>
 			</li>
 			<li class="nav-item nav-item-has-subnav">
@@ -101,6 +88,7 @@
 			  <ul class="nav nav-subnav">
 				<li><a href="lyear_pages_doc.html"><i></i>基本信息管理</a></li>
 				<li><a href="profile.html"><i></i>课表信息管理</a></li>
+				<li><a href="https://console.leancloud.cn/apps/gw4laJU022aE9r8F8HgIlkur-gzGzoHsz/storage/data/_User" target="_blank"><i></i>用户管理</a></li>
 			  </ul>
 			</li>
 			<li>
@@ -350,7 +338,7 @@
               <div class="card-body clearfix">
                 <div class="pull-right">
                   <p class="h6 text-white m-t-0">访问总量</p>
-                  <p class="h3 text-white m-b-0">34,005,000</p>
+                  <p class="h3 text-white m-b-0">50</p>
                 </div>
                 <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-arrow-down-bold fa-1-5x"></i></span> </div>
               </div>
@@ -362,7 +350,7 @@
               <div class="card-body clearfix">
                 <div class="pull-right">
                   <p class="h6 text-white m-t-0">工作室留言</p>
-                  <p class="h3 text-white m-b-0">153 条</p>
+                  <p class="h3 text-white m-b-0">20 条</p>
                 </div>
                 <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-comment-outline fa-1-5x"></i></span> </div>
               </div>
@@ -375,7 +363,7 @@
           <div class="col-lg-6"> 
             <div class="card">
               <div class="card-header">
-                <h4>每周用户</h4>
+                <h4>每周活跃用户</h4>
               </div>
               <div class="card-body">
                 <canvas class="js-chartjs-bars"></canvas>
@@ -386,7 +374,7 @@
           <div class="col-lg-6"> 
             <div class="card">
               <div class="card-header">
-                <h4>交易历史记录</h4>
+                <h4>工作室发展历史</h4>
               </div>
               <div class="card-body">
                 <canvas class="js-chartjs-lines"></canvas>
@@ -401,120 +389,41 @@
           <div class="col-lg-12">
             <div class="card">
               <div class="card-header">
-                <h4>项目信息</h4>
+                <h3>分享一些有趣的知识，和实用的的网址</h3>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
                   <table class="table table-hover">
                     <thead>
                       <tr>
-                        <th>#</th>
-                        <th>项目名称</th>
-                        <th>开始日期</th>
-                        <th>截止日期</th>
-                        <th>状态</th>
-                        <th>进度</th>
+                        <th>序号</th>
+                        <th>标题</th>
+                        <th>地址</th>
+                        <th>描述</th>
+                        <th>编辑人</th>
+                        <th>时间</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="products-detail">
+					  <script id="products-list" type="text/x-handlebars-template">
+					  {{#each websites}}
                       <tr>
-                        <td>1</td>
-                        <td>设计新主题</td>
-                        <td>10/02/2019</td>
-                        <td>12/05/2019</td>
-                        <td><span class="label label-warning">待定</span></td>
-                        <td>
-                          <div class="progress progress-striped progress-sm">
-                            <div class="progress-bar progress-bar-warning" style="width: 45%;"></div>
-                          </div>
-                        </td>
+                        <td>{{{id}}}</td>
+                        <td>{{{title}}}</td>
+						<td>{{{keywords}}}</td>
+                        <td>{{{description}}}</td>
+                        <td>{{{name}}}</td>
+                        <td>{{{releaseTime}}}</td>
                       </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>网站重新设计</td>
-                        <td>01/03/2019</td>
-                       <td>12/04/2019</td>
-                        <td><span class="label label-success">进行中</span></td>
-                        <td>
-                          <div class="progress progress-striped progress-sm">
-                            <div class="progress-bar progress-bar-success" style="width: 30%;"></div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>模型设计</td>
-                         <td>10/10/2019</td>
-                         <td>12/11/2019</td>
-                        <td><span class="label label-warning">待定</span></td>
-                        <td>
-                          <div class="progress progress-striped progress-sm">
-                            <div class="progress-bar progress-bar-warning" style="width: 25%;"></div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>4</td>
-                        <td>后台管理系统模板设计</td>
-                        <td>25/01/2019</td>
-                        <td>09/05/2019</td>
-                        <td><span class="label label-success">进行中</span></td>
-                        <td>
-                          <div class="progress progress-striped progress-sm">
-                            <div class="progress-bar progress-bar-success" style="width: 55%;"></div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>5</td>
-                        <td>前端设计</td>
-                        <td>10/10/2019</td>
-                        <td>12/12/2019</td>
-                        <td><span class="label label-danger">未开始</span></td>
-                        <td>
-                          <div class="progress progress-striped progress-sm">
-                            <div class="progress-bar progress-bar-danger" style="width: 0%;"></div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>6</td>
-                        <td>桌面软件测试</td>
-                        <td>10/01/2019</td>
-                        <td>29/03/2019</td>
-                        <td><span class="label label-success">进行中</span></td>
-                        <td>
-                          <div class="progress progress-striped progress-sm">
-                            <div class="progress-bar progress-bar-success" style="width: 75%;"></div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>7</td>
-                        <td>APP改版开发</td>
-                        <td>25/02/2019</td>
-                        <td>12/05/2019</td>
-                        <td><span class="label label-danger">暂停</span></td>
-                        <td>
-                          <div class="progress progress-striped progress-sm">
-                            <div class="progress-bar progress-bar-danger" style="width: 15%;"></div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>8</td>
-                        <td>Logo设计</td>
-                        <td>10/02/2019</td>
-                        <td>01/03/2019</td>
-                        <td><span class="label label-warning">完成</span></td>
-                        <td>
-                          <div class="progress progress-striped progress-sm">
-                            <div class="progress-bar progress-bar-success" style="width: 100%;"></div>
-                          </div>
-                        </td>
-                      </tr>
+					  {{/each}}
+					  </script>
                     </tbody>
                   </table>
+				  <div class="card-toolbar clearfix">
+				    <div class="toolbar-btn-action">
+				      <a class="btn btn-primary m-r-5" href="lyear_pages_add_doc.html">点击添加</a>
+					  <a class="btn btn-primary m-r-5" href="https://console.leancloud.cn/apps/gw4laJU022aE9r8F8HgIlkur-gzGzoHsz/storage/data/Website?sort=id-asc" target="_blank">点击编辑</a>
+				    </div>
                 </div>
               </div>
             </div>
@@ -545,22 +454,22 @@ $(document).ready(function(e) {
 		labels: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
 		datasets: [
 			{
-				label: '注册用户',
+				label: '用户数',
                 borderWidth: 1,
                 borderColor: 'rgba(0,0,0,0)',
 				backgroundColor: 'rgba(51,202,185,0.5)',
                 hoverBackgroundColor: "rgba(51,202,185,0.7)",
                 hoverBorderColor: "rgba(0,0,0,0)",
-				data: [2500, 1500, 1200, 3200, 4800, 3500, 1500]
+				data: [10, 8, 15, 10, 19, 17, 7]
 			}
 		]
 	};
     var $dashChartLinesData = {
-		labels: ['2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014'],
+		labels: [ '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022'],
 		datasets: [
 			{
-				label: '交易资金',
-				data: [20, 25, 40, 30, 45, 40, 55, 40, 48, 40, 42, 50],
+				label: '发展历史',
+				data: [25, 25, 20, 30, 31, 27, 30, 28, 30, 20, 25, 16, 19],
 				borderColor: '#358ed7',
 				backgroundColor: 'rgba(53, 142, 215, 0.175)',
                 borderWidth: 1,
@@ -609,9 +518,48 @@ $(function() {
 // }
 //console.log(unescape('贺云鹏'));
 // console.log(decodeURI(QK_onval()));
-
-
 </script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>  <!-- 输出到页面上 -->	
+            <script type="text/javascript">
+                // handlebars context
+                const context = {			
+                  websites: [],
+                };
+                console.log(context);
+				function getReleaseTime(date) {
+				  const year = date.getFullYear();
+				  const month = date.getMonth() + 1;
+				  const day = date.getDate();
+				  return `${year}/${month}/${day}`;
+				  //console.log(day);
+				}
+                
+                function setupData() {
+                  // LeanCloud - 查询
+                  // https://leancloud.cn/docs/leanstorage_guide-js.html#hash860317
+                  LC.CLASS("Website")
+                    .orderBy("id")								//按时间倒叙
+                    .find()
+                    .then((websites) => {
+                      websites.forEach((website) => {										//循环遍历
+                        context.websites.push({
+							id: website.data.id,
+							title: website.data.title,
+							keywords: website.data.keywords,
+							description: website.data.description,
+							name: website.data.name,
+							releaseTime: getReleaseTime(website.createdAt),
+                        });
+                    });
+		
+                      // use handlebars to update html
+                      const source = $("#products-list").html();
+                      const template = Handlebars.compile(source);
+                      const html = template(context);
+                      $(".products-detail").html(html);
+                    })
+                    .catch((error) => alert(error.error));
+                }
+			</script>
 </body>
 </html>
