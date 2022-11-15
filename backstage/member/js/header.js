@@ -5,10 +5,10 @@
 	
 	LC.init({ appId, appKey, serverURL});
 	
-	function logout() {
-	  LC.User.logOut();
-	  window.location.href = "lyear_pages_login.html";
-	}
+	// function logout() {
+	//   LC.User.logOut();
+	//   window.location.href = "lyear_pages_login.html";
+	// }
 	
 	$(function () {
 	  if (LC.User.current()) {
