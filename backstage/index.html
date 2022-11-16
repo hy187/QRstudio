@@ -314,7 +314,7 @@
               <div class="card-body clearfix">
                 <div class="pull-right">
                   <p class="h6 text-white m-t-0">成立天数</p>
-                  <p class="h3 text-white m-b-0">6400</p>
+                  <p class="h3 text-white m-b-0" id="show2"></p>
                 </div>
                 <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-keyboard-variant fa-1-5x"></i></span> </div>
               </div>
@@ -518,6 +518,21 @@ $(function() {
 // }
 //console.log(unescape('贺云鹏'));
 // console.log(decodeURI(QK_onval()));
+
+function size(num) {									//如果数>=10,则在前面补0（逢十进一）
+	    return num < 10 & num >= 0 ? '0' + num : num;
+	  } 
+	  var presentDate = new Date();							//获取当前时间
+	  var presenTime = presentDate.getTime();				//获取当前时间戳
+	  var d = new Date('2004-09-01');						//获取以前的某个时间
+	  var pasttime = d.getTime(d);							//转换成时间戳
+	  var allTime = presenTime - pasttime;					//两个时间戳相减
+	  var allSecond = parseInt(allTime / 1000);				//将毫秒转换成秒
+	  var day = size(parseInt(allSecond / 3600 / 24));		//将时间戳转换成天数
+	  
+	  $(function(){						
+	  	$("#show2").html(day);
+	  })
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>  <!-- 输出到页面上 -->	
             <script type="text/javascript">

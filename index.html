@@ -271,7 +271,7 @@
         <div class="row counters">
 
           <div class="col-lg-3 col-6 text-center">
-            <span>6,542</span>
+            <span id="show"></span>
             <p>成立天数</p>
           </div>
 
@@ -593,10 +593,10 @@
               &nbsp;&nbsp;&nbsp;&nbsp;<a href="http://web.sias.edu.cn/net/" target="_blank">信息化与建设处</a>
             </p><br>
             <p>
-              &nbsp;&nbsp;&nbsp;&nbsp;<a href="#" target="_blank">工作室签到系统（暂未对外开放）</a>
+              &nbsp;&nbsp;&nbsp;&nbsp;<a href="backstage/lyear_pages_login.html" target="_blank">工作室管理后台</a>
             </p><br>
       <p>
-        &nbsp;&nbsp;&nbsp;&nbsp;<a href="#" target="_blank">工作室管理后台（暂未对外开放）</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;<a href="#" target="_blank">工作室签到系统（暂未对外开放）</a>
       </p>
           </div>
 
@@ -697,13 +697,27 @@
 
   </script>
   <script type="text/javascript">
-	  new Valine({
-	      el:'#vcomments',
-	      appId: 'gw4laJU022aE9r8F8HgIlkur-gzGzoHsz',
-	      appKey: 'FSHBNc10OyrdSgB68dM5CYgm',
-	      visitor: true // 阅读量统计
+	  // new Valine({
+	  //     el:'#vcomments',
+	  //     appId: 'gw4laJU022aE9r8F8HgIlkur-gzGzoHsz',
+	  //     appKey: 'FSHBNc10OyrdSgB68dM5CYgm',
+	  //     visitor: true // 阅读量统计
+	  // })
+	  function size(num) {									//如果数>=10,则在前面补0（逢十进一）
+	    return num < 10 & num >= 0 ? '0' + num : num;
+	  } 
+	  var presentDate = new Date();							//获取当前时间
+	  var presenTime = presentDate.getTime();				//获取当前时间戳
+	  var d = new Date('2004-09-01');						//获取以前的某个时间
+	  var pasttime = d.getTime(d);							//转换成时间戳
+	  var allTime = presenTime - pasttime;					//两个时间戳相减
+	  var allSecond = parseInt(allTime / 1000);				//将毫秒转换成秒
+	  var day = size(parseInt(allSecond / 3600 / 24));		//将时间戳转换成天数
+	  
+	  $(function(){						
+	  	$("#show").html(day);
 	  })
-	
+	  
   </script>
 </body>
 </html>
